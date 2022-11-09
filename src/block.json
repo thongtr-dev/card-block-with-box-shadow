@@ -5,9 +5,79 @@
 	"version": "1.0.0",
 	"title": "Card Block with Box Shadow",
 	"category": "design",
-	"description": "Add a custom card block to WordPress block editor. It 's basically the group block but with custom box shadow control.",
+	"description": "Add a custom card block to WordPress block editor. It can be used as a content container with custom controls for padding, margin, background color/gradient and, hence the name of the block - box shadow.",
+	"attributes": {
+		"cardBoxShadowToggle": {
+			"type": "boolean",
+			"default": true
+		},
+		"cardBoxShadow": {
+			"type": "object",
+			"default": {
+				"offsetX": 0,
+				"offsetY": 24,
+				"blurRadius": 48,
+				"spreadRadius": 0,
+				"shadowColor": "rgba(193,203,220,0.4)"
+			}
+		},
+		"defaultPadding": {
+			"type": "number",
+			"default": 30
+		}
+	},
 	"supports": {
-		"html": false
+		"__experimentalOnEnter": true,
+		"__experimentalSettings": true,
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"ariaLabel": true,
+		"html": false,
+		"color": {
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": true,
+			"blockGap": [ "horizontal", "vertical" ],
+			"__experimentalDefaultControls": {
+				"padding": true,
+				"margin": true
+			}
+		},
+		"dimensions": {
+			"minHeight": true
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontWeight": true,
+			"__experimentalFontStyle": true,
+			"__experimentalTextTransform": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		}
 	},
 	"textdomain": "card-block-with-box-shadow",
 	"editorScript": "file:./index.js",

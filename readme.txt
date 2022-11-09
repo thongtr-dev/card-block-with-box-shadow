@@ -6,7 +6,8 @@ Stable tag:        1.0.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Add a custom card block to WordPress block editor. It &#39;s basically the group block but with custom box shadow control.
+Add a custom card block to WordPress block editor.
+It can be used as a content container with custom controls for padding, margin, background color/gradient and, hence the name of the block - box shadow.
 
 == Description ==
 

@@ -1,7 +1,8 @@
 <?php
+
 /**
  * Plugin Name:       Card Block with Box Shadow
- * Description:       Add a custom card block to WordPress block editor. It &#39;s basically the group block but with custom box shadow control.
+ * Description:       Add a custom card block to WordPress block editor. It can be used as a content container with custom controls for padding, margin, background color/gradient and, hence the name of the block - box shadow.
  * Requires at least: 5.9
  * Requires PHP:      7.0
  * Version:           1.0.0
@@ -20,7 +21,8 @@
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function card_block_with_box_shadow_card_block_with_box_shadow_block_init() {
-	register_block_type( __DIR__ . '/build' );
+function card_block_with_box_shadow_card_block_with_box_shadow_block_init()
+{
+	register_block_type(__DIR__ . '/build');
 }
-add_action( 'init', 'card_block_with_box_shadow_card_block_with_box_shadow_block_init' );
+add_action('init', 'card_block_with_box_shadow_card_block_with_box_shadow_block_init');
