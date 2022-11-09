@@ -7,6 +7,7 @@
  * Requires PHP:      7.0
  * Version:           1.0.0
  * Author:            Thong Truong
+ * Author URI:        https://thongtruong.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       card-block-with-box-shadow
