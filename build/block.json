@@ -5,7 +5,6 @@
   "version": "1.0.0",
   "title": "Card Block with Box Shadow",
   "category": "design",
-  "icon": "smiley",
   "description": "Add a custom card block to WordPress block editor. It 's basically the group block but with custom box shadow control.",
   "supports": {
     "html": false
