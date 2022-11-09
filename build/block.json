@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "card-block-with-box-shadow/card-block-with-box-shadow",
+  "version": "1.0.0",
+  "title": "Card Block with Box Shadow",
+  "category": "design",
+  "icon": "smiley",
+  "description": "Add a custom card block to WordPress block editor. It 's basically the group block but with custom box shadow control.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "card-block-with-box-shadow",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
