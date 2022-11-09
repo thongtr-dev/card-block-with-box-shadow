@@ -1,56 +1,44 @@
 === Card Block with Box Shadow ===
-Contributors:      Thong Truong
-Tags:              block
-Tested up to:      6.0
+Contributors:      thongtruong
+Tags:              block, card
+Tested up to:      6.1
 Stable tag:        1.0.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Add a custom card block to WordPress block editor.
-It can be used as a content container with custom controls for padding, margin, background color/gradient and, hence the name of the block - box shadow.
+Add a custom card block to WordPress block editor with box shadow setting.
 
 == Description ==
 
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
-
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+The card block can be used as a content container with custom controls for padding, margin, background color/gradient and, hence the name of the block - box shadow.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
-
-e.g.
-
 1. Upload the plugin files to the `/wp-content/plugins/card-block-with-box-shadow` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
-
+2. Activate the plugin through the 'Plugins' screen in WordPress.
+3. Go to WordPress block editor in page/post and type "/card" to choose the Card Block with Box Shadow block and begin editting.
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= What type of blocks can be used inside the Card Block with Box Shadow block? =
 
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
+Any block
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. Type "/card" to choose the block
+2. Add any block you wish inside the card block
+3. The card shadow toggle is enabled by default
+4. When the card shadow toggle in disabled, it will hide the card shadow control underneath
+5. The result on the frontend
+
+/assets/screenshot-1.png
+/assets/screenshot-2.png
+/assets/screenshot-3.png
+/assets/screenshot-4.png
+/assets/screenshot-5.png
 
 == Changelog ==
 
 = 1.0.0 =
 * Release
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
