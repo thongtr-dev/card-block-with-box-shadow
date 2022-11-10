@@ -1,6 +1,8 @@
 === Card Block with Box Shadow ===
 Contributors:      thongtruong
 Tags:              block, card
+Requires at least: 5.9
+Requires PHP:      7.0
 Tested up to:      6.1
 Stable tag:        1.0.0
 License:           GPL-2.0-or-later
