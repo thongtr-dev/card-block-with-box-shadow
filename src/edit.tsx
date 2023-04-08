@@ -20,7 +20,6 @@ import {
 import {
 	ToggleControl,
 	ColorPicker,
-	Panel,
 	PanelBody,
 	PanelRow,
 	RangeControl,
@@ -89,109 +88,107 @@ export default function Edit({
 			}}
 		>
 			<InspectorControls>
-				<Panel header={__("Card style", "card-block-with-box-shadow")}>
-					<PanelBody>
-						<ToggleControl
-							label={__("Card shadow", "card-block-with-box-shadow")}
-							help={
-								cardBoxShadowToggle
-									? __("Disable card shadow", "card-block-with-box-shadow")
-									: __("Enable card shadow", "card-block-with-box-shadow")
-							}
-							checked={cardBoxShadowToggle}
-							onChange={onChangeCardBoxShadowToggle}
+				<PanelBody>
+					<ToggleControl
+						label={__("Card shadow", "card-block-with-box-shadow")}
+						help={
+							cardBoxShadowToggle
+								? __("Disable card shadow", "card-block-with-box-shadow")
+								: __("Enable card shadow", "card-block-with-box-shadow")
+						}
+						checked={cardBoxShadowToggle}
+						onChange={onChangeCardBoxShadowToggle}
+					/>
+				</PanelBody>
+				{cardBoxShadowToggle && (
+					<PanelBody
+						title={__("Card shadow control", "card-block-with-box-shadow")}
+					>
+						<RangeControl
+							__nextHasNoMarginBottom
+							label={__("Offset X", "card-block-with-box-shadow")}
+							max={100}
+							min={-100}
+							allowReset={true}
+							resetFallbackValue={0}
+							value={offsetX}
+							onChange={(newOffsetX: number): void => {
+								setAttributes({
+									cardBoxShadow: {
+										...cardBoxShadow,
+										offsetX: newOffsetX,
+									},
+								});
+							}}
+						/>
+						<RangeControl
+							__nextHasNoMarginBottom
+							label={__("Offset Y", "card-block-with-box-shadow")}
+							max={100}
+							min={-100}
+							allowReset={true}
+							resetFallbackValue={0}
+							value={offsetY}
+							onChange={(newOffsetY: number): void => {
+								setAttributes({
+									cardBoxShadow: {
+										...cardBoxShadow,
+										offsetY: newOffsetY,
+									},
+								});
+							}}
+						/>
+						<RangeControl
+							__nextHasNoMarginBottom
+							label={__("Blur radius", "card-block-with-box-shadow")}
+							max={100}
+							min={0}
+							allowReset={true}
+							resetFallbackValue={0}
+							value={blurRadius}
+							onChange={(newBlurRadius: number): void => {
+								setAttributes({
+									cardBoxShadow: {
+										...cardBoxShadow,
+										blurRadius: newBlurRadius,
+									},
+								});
+							}}
+						/>
+						<RangeControl
+							__nextHasNoMarginBottom
+							label={__("Spread radius", "card-block-with-box-shadow")}
+							max={100}
+							min={-100}
+							allowReset={true}
+							resetFallbackValue={0}
+							value={spreadRadius}
+							onChange={(newSpreadRadius: number): void => {
+								setAttributes({
+									cardBoxShadow: {
+										...cardBoxShadow,
+										spreadRadius: newSpreadRadius,
+									},
+								});
+							}}
+						/>
+						<PanelRow>
+							{__("Box shadow color", "card-block-with-box-shadow")}
+						</PanelRow>
+						<ColorPicker
+							enableAlpha={true}
+							defaultValue={shadowColor}
+							onChange={(newShadowColor: string): void => {
+								setAttributes({
+									cardBoxShadow: {
+										...cardBoxShadow,
+										shadowColor: newShadowColor,
+									},
+								});
+							}}
 						/>
 					</PanelBody>
-					{cardBoxShadowToggle && (
-						<PanelBody
-							title={__("Card shadow control", "card-block-with-box-shadow")}
-						>
-							<RangeControl
-								__nextHasNoMarginBottom
-								label={__("Offset X", "card-block-with-box-shadow")}
-								max={100}
-								min={-100}
-								allowReset={true}
-								resetFallbackValue={0}
-								value={offsetX}
-								onChange={(newOffsetX: number): void => {
-									setAttributes({
-										cardBoxShadow: {
-											...cardBoxShadow,
-											offsetX: newOffsetX,
-										},
-									});
-								}}
-							/>
-							<RangeControl
-								__nextHasNoMarginBottom
-								label={__("Offset Y", "card-block-with-box-shadow")}
-								max={100}
-								min={-100}
-								allowReset={true}
-								resetFallbackValue={0}
-								value={offsetY}
-								onChange={(newOffsetY: number): void => {
-									setAttributes({
-										cardBoxShadow: {
-											...cardBoxShadow,
-											offsetY: newOffsetY,
-										},
-									});
-								}}
-							/>
-							<RangeControl
-								__nextHasNoMarginBottom
-								label={__("Blur radius", "card-block-with-box-shadow")}
-								max={100}
-								min={0}
-								allowReset={true}
-								resetFallbackValue={0}
-								value={blurRadius}
-								onChange={(newBlurRadius: number): void => {
-									setAttributes({
-										cardBoxShadow: {
-											...cardBoxShadow,
-											blurRadius: newBlurRadius,
-										},
-									});
-								}}
-							/>
-							<RangeControl
-								__nextHasNoMarginBottom
-								label={__("Spread radius", "card-block-with-box-shadow")}
-								max={100}
-								min={-100}
-								allowReset={true}
-								resetFallbackValue={0}
-								value={spreadRadius}
-								onChange={(newSpreadRadius: number): void => {
-									setAttributes({
-										cardBoxShadow: {
-											...cardBoxShadow,
-											spreadRadius: newSpreadRadius,
-										},
-									});
-								}}
-							/>
-							<PanelRow>
-								{__("Box shadow color", "card-block-with-box-shadow")}
-							</PanelRow>
-							<ColorPicker
-								enableAlpha={true}
-								defaultValue={shadowColor}
-								onChange={(newShadowColor: string): void => {
-									setAttributes({
-										cardBoxShadow: {
-											...cardBoxShadow,
-											shadowColor: newShadowColor,
-										},
-									});
-								}}
-							/>
-						</PanelBody>
-					)}
-				</Panel>
+				)}
 			</InspectorControls>
 			<InnerBlocks template={TEMPLATE} />
 		</div>
