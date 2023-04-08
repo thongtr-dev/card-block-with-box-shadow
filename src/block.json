@@ -1,8 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "card-block-with-box-shadow/card-block-with-box-shadow",
-	"version": "1.0.0",
+	"name": "thongtruong/card-block-with-box-shadow",
+	"version": "2.0.0",
 	"title": "Card Block with Box Shadow",
 	"category": "design",
 	"description": "Add a custom card block to WordPress block editor. It can be used as a content container with custom controls for padding, margin, background color/gradient and, hence the name of the block - box shadow.",
@@ -80,7 +80,7 @@
 		}
 	},
 	"textdomain": "card-block-with-box-shadow",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+	"editorScript": "file:./main.js",
+	"editorStyle": "file:./main.css",
+	"style": "file:./style-main.css"
 }

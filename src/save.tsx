@@ -16,21 +16,50 @@ import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 
-export default function save({ attributes }) {
-	const blockProps = useBlockProps.save();
-	const { cardBoxShadow, cardBoxShadowToggle, defaultPadding } = attributes;
+interface CardBoxShadow {
+	offsetX: number;
+	offsetY: number;
+	blurRadius: number;
+	spreadRadius: number;
+	shadowColor: string;
+}
 
-	const { offsetX, offsetY, blurRadius, spreadRadius, shadowColor } =
-		cardBoxShadow;
+interface SaveProps {
+	attributes: {
+		cardBoxShadow: CardBoxShadow;
+		cardBoxShadowToggle: boolean;
+		defaultPadding: number;
+	};
+}
+
+export default function save({ attributes }: SaveProps): JSX.Element {
+	const blockProps = useBlockProps.save();
+
+	const {
+		cardBoxShadow,
+		cardBoxShadowToggle,
+		defaultPadding,
+	}: SaveProps["attributes"] = attributes;
+
+	const {
+		offsetX,
+		offsetY,
+		blurRadius,
+		spreadRadius,
+		shadowColor,
+	}: CardBoxShadow = cardBoxShadow;
+
+	const boxShadow =
+		cardBoxShadowToggle &&
+		`${offsetX}px ${offsetY}px ${blurRadius}px ${spreadRadius}px ${shadowColor}`;
+
 	return (
 		<div
 			{...blockProps}
 			style={{
 				padding: `${defaultPadding}px`,
 				...blockProps.style,
-				boxShadow:
-					cardBoxShadowToggle &&
-					`${offsetX}px ${offsetY}px ${blurRadius}px ${spreadRadius}px ${shadowColor}`,
+				boxShadow,
 			}}
 		>
 			<InnerBlocks.Content />

@@ -34,16 +34,44 @@ import {
  *
  * @return {WPElement} Element to render.
  */
+interface CardBoxShadow {
+	offsetX: number;
+	offsetY: number;
+	blurRadius: number;
+	spreadRadius: number;
+	shadowColor: string;
+}
 
-export default function Edit({ attributes, setAttributes }) {
+interface EditProps {
+	attributes: {
+		cardBoxShadow: CardBoxShadow;
+		cardBoxShadowToggle: boolean;
+		defaultPadding: number;
+	};
+	setAttributes: any;
+}
+
+export default function Edit({
+	attributes,
+	setAttributes,
+}: EditProps): JSX.Element {
 	const blockProps = useBlockProps();
 
-	const { cardBoxShadow, cardBoxShadowToggle, defaultPadding } = attributes;
+	const {
+		cardBoxShadow,
+		cardBoxShadowToggle,
+		defaultPadding,
+	}: EditProps["attributes"] = attributes;
 
-	const { offsetX, offsetY, blurRadius, spreadRadius, shadowColor } =
-		cardBoxShadow;
+	const {
+		offsetX,
+		offsetY,
+		blurRadius,
+		spreadRadius,
+		shadowColor,
+	}: CardBoxShadow = cardBoxShadow;
 
-	const onChangeCardBoxShadowToggle = (newValue) => {
+	const onChangeCardBoxShadowToggle = (newValue: boolean): void => {
 		setAttributes({ cardBoxShadowToggle: newValue });
 	};
 
@@ -86,7 +114,7 @@ export default function Edit({ attributes, setAttributes }) {
 								allowReset={true}
 								resetFallbackValue={0}
 								value={offsetX}
-								onChange={(newOffsetX) => {
+								onChange={(newOffsetX: number): void => {
 									setAttributes({
 										cardBoxShadow: {
 											...cardBoxShadow,
@@ -103,7 +131,7 @@ export default function Edit({ attributes, setAttributes }) {
 								allowReset={true}
 								resetFallbackValue={0}
 								value={offsetY}
-								onChange={(newOffsetY) => {
+								onChange={(newOffsetY: number): void => {
 									setAttributes({
 										cardBoxShadow: {
 											...cardBoxShadow,
@@ -120,7 +148,7 @@ export default function Edit({ attributes, setAttributes }) {
 								allowReset={true}
 								resetFallbackValue={0}
 								value={blurRadius}
-								onChange={(newBlurRadius) => {
+								onChange={(newBlurRadius: number): void => {
 									setAttributes({
 										cardBoxShadow: {
 											...cardBoxShadow,
@@ -137,7 +165,7 @@ export default function Edit({ attributes, setAttributes }) {
 								allowReset={true}
 								resetFallbackValue={0}
 								value={spreadRadius}
-								onChange={(newSpreadRadius) => {
+								onChange={(newSpreadRadius: number): void => {
 									setAttributes({
 										cardBoxShadow: {
 											...cardBoxShadow,
@@ -151,8 +179,8 @@ export default function Edit({ attributes, setAttributes }) {
 							</PanelRow>
 							<ColorPicker
 								enableAlpha={true}
-								defaultValue={"rgba(193,203,220,0.4)"}
-								onChange={(newShadowColor) => {
+								defaultValue={shadowColor}
+								onChange={(newShadowColor: string): void => {
 									setAttributes({
 										cardBoxShadow: {
 											...cardBoxShadow,
