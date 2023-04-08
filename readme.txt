@@ -43,7 +43,7 @@ Any block
 == Changelog ==
 
 = 2.0.0 =
-* The plugin is now compatible with both hybrid and block theme.
+* The plugin is now compatible with both hybrid and block themes.
 
 = 1.0.0 =
 * Release
