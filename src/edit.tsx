@@ -25,6 +25,8 @@ import {
 	RangeControl,
 } from "@wordpress/components";
 
+import { FC } from "react";
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -41,21 +43,21 @@ interface CardBoxShadow {
 	shadowColor: string;
 }
 
+interface SetNewAttribute {
+	cardBoxShadow?: CardBoxShadow;
+	cardBoxShadowToggle?: boolean;
+}
+
 interface EditProps {
 	attributes: {
 		cardBoxShadow: CardBoxShadow;
 		cardBoxShadowToggle: boolean;
 		defaultPadding: number;
 	};
-	setAttributes: any;
+	setAttributes: (newAttribute: SetNewAttribute) => void;
 }
 
-export default function Edit({
-	attributes,
-	setAttributes,
-}: EditProps): JSX.Element {
-	const blockProps = useBlockProps();
-
+export const Edit: FC<EditProps> = ({ attributes, setAttributes }) => {
 	const {
 		cardBoxShadow,
 		cardBoxShadowToggle,
@@ -70,23 +72,19 @@ export default function Edit({
 		shadowColor,
 	}: CardBoxShadow = cardBoxShadow;
 
-	const onChangeCardBoxShadowToggle = (newValue: boolean): void => {
-		setAttributes({ cardBoxShadowToggle: newValue });
-	};
+	const TEMPLATE: [[string, { placeholder: string }?]] = [["core/paragraph"]];
 
-	const TEMPLATE = [["core/paragraph"]];
+	const blockProps = useBlockProps<HTMLElement>({
+		style: {
+			padding: `${defaultPadding}px`,
+			boxShadow:
+				cardBoxShadowToggle &&
+				`${offsetX}px ${offsetY}px ${blurRadius}px ${spreadRadius}px ${shadowColor}`,
+		},
+	});
 
 	return (
-		<div
-			{...blockProps}
-			style={{
-				padding: `${defaultPadding}px`,
-				...blockProps.style,
-				boxShadow:
-					cardBoxShadowToggle &&
-					`${offsetX}px ${offsetY}px ${blurRadius}px ${spreadRadius}px ${shadowColor}`,
-			}}
-		>
+		<div {...blockProps}>
 			<InspectorControls>
 				<PanelBody>
 					<ToggleControl
@@ -97,7 +95,9 @@ export default function Edit({
 								: __("Enable card shadow", "card-block-with-box-shadow")
 						}
 						checked={cardBoxShadowToggle}
-						onChange={onChangeCardBoxShadowToggle}
+						onChange={(newValue: boolean): void => {
+							setAttributes({ cardBoxShadowToggle: newValue });
+						}}
 					/>
 				</PanelBody>
 				{cardBoxShadowToggle && (
@@ -193,4 +193,4 @@ export default function Edit({
 			<InnerBlocks template={TEMPLATE} />
 		</div>
 	);
-}
+};

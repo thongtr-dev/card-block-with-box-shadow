@@ -6,6 +6,8 @@
  */
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
+import { FC } from "react";
+
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -32,9 +34,7 @@ interface SaveProps {
 	};
 }
 
-export default function save({ attributes }: SaveProps): JSX.Element {
-	const blockProps = useBlockProps.save();
-
+export const save: FC<SaveProps> = ({ attributes }) => {
 	const {
 		cardBoxShadow,
 		cardBoxShadowToggle,
@@ -49,20 +49,18 @@ export default function save({ attributes }: SaveProps): JSX.Element {
 		shadowColor,
 	}: CardBoxShadow = cardBoxShadow;
 
-	const boxShadow =
-		cardBoxShadowToggle &&
-		`${offsetX}px ${offsetY}px ${blurRadius}px ${spreadRadius}px ${shadowColor}`;
+	const blockProps = useBlockProps.save<HTMLElement>({
+		style: {
+			padding: `${defaultPadding}px`,
+			boxShadow:
+				cardBoxShadowToggle &&
+				`${offsetX}px ${offsetY}px ${blurRadius}px ${spreadRadius}px ${shadowColor}`,
+		},
+	});
 
 	return (
-		<div
-			{...blockProps}
-			style={{
-				padding: `${defaultPadding}px`,
-				...blockProps.style,
-				boxShadow,
-			}}
-		>
+		<div {...blockProps}>
 			<InnerBlocks.Content />
 		</div>
 	);
-}
+};
