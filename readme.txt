@@ -12,6 +12,8 @@ Add a custom card block to WordPress block editor with box shadow setting.
 
 == Description ==
 
+**NOTE: This block plugin is only compatible with hybrid and block themes.**
+
 The card block can be used as a content container with custom controls for padding, margin, background color/gradient and, hence the name of the block - box shadow.
 
 == Installation ==
@@ -31,8 +33,8 @@ Any block
 1. Type "/card" to choose the block
 2. Add any block you wish inside the card block
 3. The card shadow toggle is enabled by default
-4. When the card shadow toggle in disabled, it will hide the card shadow control underneath
-5. The result on the frontend
+4. When the card shadow toggle is disabled, it will hide the card shadow control underneath
+5. The result on frontend
 
 /assets/screenshot-1.png
 /assets/screenshot-2.png
@@ -43,7 +45,7 @@ Any block
 == Changelog ==
 
 = 2.0.0 =
-* The plugin is now compatible with both hybrid and block themes.
+* Refactor codebase to TypeScript
 
 = 1.0.0 =
-* Release
+* Initial release
